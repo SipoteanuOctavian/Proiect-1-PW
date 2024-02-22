@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persoane>
+<persoana id="1">
+<nume>Sipoteanu</nume>
+<prenume>Octavian-Ioan</prenume>
+<varsta>21</varsta>
+<adresa>
+    <strada>1 Februarie 1945</strada>
+    <numar>25</numar>
+    <localitate>Ciurea</localitate>
+    <judet>Iasi</judet>
+    <tara>Romania</tara>
+</adresa>
+</persoana>
+</persoane>
