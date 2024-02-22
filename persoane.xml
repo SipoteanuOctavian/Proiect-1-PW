@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <persoane>
+
 <persoana id="1">
 <nume>Sipoteanu</nume>
 <prenume>Octavian-Ioan</prenume>
@@ -11,5 +12,47 @@
     <judet>Iasi</judet>
     <tara>Romania</tara>
 </adresa>
+<educatie>
+    <Institut>Facultatea de Automatica si Calculatoare Iasi</Institut>
+    </An>3</An>
+    <Limba>Romana</Limba>
+</educatie>
 </persoana>
+
+<persoana id="2">
+<nume>Apostol</nume>
+<prenume>Vlad-Ionut</prenume>
+<varsta>21</varsta>
+<adresa>
+    <strada>1 Ianuarie 1945</strada>
+    <numar>12</numar>
+    <localitate>Iasi</localitate>
+    <judet>Iasi</judet>
+    <tara>Romania</tara>
+</adresa>
+<educatie>
+    <Institut>Facultatea de Automatica si Calculatoare Iasi</Institut>
+    </An>3</An>
+    <Limba>Romana</Limba>
+</educatie>
+</persoana>
+
+<persoana id="3">
+<nume>Ceausescu</nume>
+<prenume>Nicolae</prenume>
+<varsta>100</varsta>
+<adresa>
+    <strada>Mircea Cel Batran</strada>
+    <numar>78</numar>
+    <localitate>Iasi</localitate>
+    <judet>Iasi</judet>
+    <tara>Romania</tara>
+</adresa>
+<educatie>
+    <Institut>Liceul Garabet Ibraileanu</Institut>
+    </An>Clasa 12-a</An>
+    <Limba>Chineza</Limba>
+</educatie>
+</persoana>
+
 </persoane>
