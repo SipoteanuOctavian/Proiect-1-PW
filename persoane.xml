@@ -14,7 +14,7 @@
 </adresa>
 <educatie>
     <Institut>Facultatea de Automatica si Calculatoare Iasi</Institut>
-    </An>3</An>
+    <An>3</An>
     <Limba>Romana</Limba>
 </educatie>
 </persoana>
@@ -32,7 +32,7 @@
 </adresa>
 <educatie>
     <Institut>Facultatea de Automatica si Calculatoare Iasi</Institut>
-    </An>3</An>
+    <An>3</An>
     <Limba>Romana</Limba>
 </educatie>
 </persoana>
@@ -50,7 +50,7 @@
 </adresa>
 <educatie>
     <Institut>Liceul Garabet Ibraileanu</Institut>
-    </An>Clasa 12-a</An>
+    <An>Clasa 12-a</An>
     <Limba>Chineza</Limba>
 </educatie>
 </persoana>
