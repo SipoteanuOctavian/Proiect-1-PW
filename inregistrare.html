@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inregistrare</title>
+</head>
+
+<body>
+    <nav>
+        <div><a href="./index.html">Acasa</a></div>
+        <div><a href="./despre.html">Despre</a></div>
+        <div><a href="./inregistrare.html">Inregistrare</a></div>
+        <div><a href="./jocuri-si-serial.html">Jocuri si Serial</a></div>
+        <div><a href="./bestiar.html">Bestiar</a></div>
+        <div><a href="./video.html">Video</a></div>
+        <div><a href="./desen.html">Desen</a></div>
+    </nav>
+    <h2>Informatii Generale</h2>
+    <form action="/inregistrare.html">
+        <label for="nume_utilizator">Nume utilizator:</label><br>
+        <input type="text" id="nume_utilizator" name="nutilizator" value=""><br>
+
+        <label for="parola">Parola:</label><br>
+        <input type="text" id="parola" name="parola" value=""><br>
+
+        <label for="nume">Nume:</label><br>
+        <input type="text" id="nume" name="nume" value=""><br>
+
+        <label for="prenume">Prenume:</label><br>
+        <input type="text" id="prenume" name="prenume" value=""><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" value=""><br>
+
+        <label for="telefon">Telefon:</label><br>
+        <input type="tel" id="telefon" name="telefon" value=""><br>
+    </form>
+
+    <h2>Informatii Personale</h2>
+    <form action="/inregistrare.html">
+        <label for="sex">Sexul:</label><br>
+        <select id="sex" name="sex">
+            <option value="masculin">Masculin</option>
+            <option value="feminin">Feminin</option>
+            <option value="altul">Altul</option>
+        </select><br>
+
+        <label for="mancare">Mâncarea preferată:</label><br>
+        <input list="mancare_list" id="mancare" name="mancare">
+        <datalist id="mancare_list">
+            <option value="Pizza">
+            <option value="Paste">
+            <option value="Sushi">
+            <option value="Salată">
+        </datalist><br>
+
+        <label for="culoare">Culoarea preferată:</label><br>
+        <input type="color" id="culoare" name="culoare"><br>
+
+        <label for="data_nasterii">Data nașterii:</label><br>
+        <input type="date" id="data_nasterii" name="data_nasterii"><br>
+
+        <label for="ora_nasterii">Ora nașterii:</label><br>
+        <input type="time" id="ora_nasterii" name="ora_nasterii"><br>
+
+        <label for="varsta">Vârsta:</label><br>
+        <input type="range" id="varsta" name="varsta" min="18" max="100"><br>
+
+        <label for="pagina_personala">Adresa paginii personale:</label><br>
+        <input type="url" id="pagina_personala" name="pagina_personala"><br>
+
+        <label for="descriere">Descriere:</label><br>
+        <textarea id="descriere" name="descriere" rows="4" cols="50"></textarea><br>
+
+        <input type="submit" value="Trimite">
+    </form>
+
+    <br>
+    <input type="submit" value="Abonare">
+</body>
+
+</html>
