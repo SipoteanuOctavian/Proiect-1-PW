@@ -1,0 +1,133 @@
+/* Resetare stiluri */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Stiluri generale pentru body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+/* Stiluri pentru antet */
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center; /* Centrare orizontală a elementelor */
+    align-items: center; /* Centrare verticală a elementelor în containerul flexibil */
+    /* Adăugare gradient de fundal */
+    background-image: linear-gradient(to right, #333, #666);
+}
+
+nav div {
+    margin-left: 20px; /* Am schimbat margin-right cu margin-left pentru a crea spațiu între elementele din bara de navigație */
+}
+
+nav div:first-child {
+    margin-left: 0; /* Eliminăm margin-left pentru primul element */
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: 18px;
+    /* Adăugare efect de tranziție */
+    transition: background-color 0.3s ease;
+}
+
+/* Stiluri pentru conținut */
+h1, h2, h4 {
+    color: #333;
+    margin-top: 20px;
+}
+
+p, ol, table {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #666;
+    color: white;
+}
+
+/* Stiluri pentru iframe */
+iframe {
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Adăugarea de elemente specifice CSS3 */
+/* 1. Efect de umbrire la survol */
+nav a:hover {
+    background-color: #555;
+}
+
+/* 2. Tranziție linie text la hover */
+h1:hover, h2:hover, h4:hover {
+    text-decoration: underline;
+}
+
+/* 3. Gradient de fundal */
+body {
+    background: linear-gradient(to bottom, #f0f0f0, #ccc);
+}
+
+/* 4. Efect de umbrire pe elementele de tabel */
+table th, table td {
+    transition: box-shadow 0.3s ease;
+}
+
+table th:hover, table td:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 5. Efect de tranziție la modificarea culorii de fundal la survol pentru elementele de navigare */
+nav a {
+    background-color: #333;
+}
+
+nav a:hover {
+    background-color: #555;
+}
+
+/* Stiluri pentru galeria video */
+.videouri {
+    display: flex;
+    flex-direction: column; /* Aliniere verticală de sus în jos */
+    align-items: center; /* Aliniere elemente la centru pe axa orizontală */
+    margin-top: 20px; /* Adăugare spațiu între bara de navigație și prima video */
+}
+
+.video-item {
+    width: 80%; /* Lățimea video-urilor */
+    margin-bottom: 20px; /* Spațiu între videouri */
+}
+
+/* Stiluri pentru videouri */
+video {
+    width: 100%; /* Videourile ocupă întreaga lățime */
+    height: auto; /* Înălțimea se ajustează automat proporțional cu lățimea */
+    max-height: 200px; /* Înălțimea maximă a videourilor */
+}
+
+
