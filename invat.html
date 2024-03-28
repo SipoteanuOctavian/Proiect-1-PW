@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Învăț</title>
+    <link rel="stylesheet" href="./css/stil.css">
+    <script src="./js/script.js" defer></script>
+</head>
+
+<body>
+
+    <nav>
+        <div><a href="./index.html">Acasă</a></div>
+        <div><a href="./despre.html">Despre</a></div>
+        <div><a href="./inregistrare.html">Înregistrare</a></div>
+        <div><a href="./video.html">Video</a></div>
+        <div><a href="./desen.html">Desen</a></div>
+        <div><a href="./invat.html">Învăț</a></div>
+    </nav>
+
+    <h1>Învăț</h1>
+
+    <section>
+        <h2>Informatii generale</h2>
+        <p id="dateTime"></p>
+        <p id="browserInfo"></p>
+        <p id="locationInfo"></p>
+        <p id="realTime"></p>
+    </section>
+
+    <section>
+        <h2>Desenare pe Canvas</h2>
+        <label for="strokeColor">Culoare contur:</label>
+        <input type="color" id="strokeColor">
+
+        <label for="fillColor">Culoare umplere:</label>
+        <input type="color" id="fillColor">
+
+        <canvas id="canvas"></canvas>
+    </section>
+
+    <section>
+        <h2>Secțiunea 3: Modificarea dinamică a unui tabel</h2>
+
+        <label for="position">Poziția (linie/coloană):</label>
+        <input type="text" id="position" placeholder="ex: 2/3">
+
+        <label for="bgColor">Culoarea de fundal:</label>
+        <input type="color" id="bgColor">
+
+        <button onclick="insertRow()">Inserează rând nou</button>
+        <button onclick="insertColumn()">Inserează coloană nouă</button>
+
+        <table id="myTable">
+            <tr>
+                <th>Coloana 1</th>
+                <th>Coloana 2</th>
+                <th>Coloana 3</th>
+            </tr>
+            <tr>
+                <td>Randul 1, Celula 1</td>
+                <td>Randul 1, Celula 2</td>
+                <td>Randul 1, Celula 3</td>
+            </tr>
+            <tr>
+                <td>Randul 2, Celula 1</td>
+                <td>Randul 2, Celula 2</td>
+                <td>Randul 2, Celula 3</td>
+            </tr>
+        </table>
+    </section>
+
+
+</body>
+
+</html>
