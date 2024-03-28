@@ -25,11 +25,11 @@ nav {
 }
 
 nav div {
-    margin-left: 20px; /* Am schimbat margin-right cu margin-left pentru a crea spațiu între elementele din bara de navigație */
+    margin-left: 20px;
 }
 
 nav div:first-child {
-    margin-left: 0; /* Eliminăm margin-left pentru primul element */
+    margin-left: 0;
 }
 
 nav a {
@@ -39,41 +39,55 @@ nav a {
     border: 2px solid black;
     border-radius: 10px;
     font-size: 18px;
-    /* Adăugare efect de tranziție */
     transition: background-color 0.3s ease;
 }
 
-/* Stiluri pentru conținut */
-h1, h2, h4 {
-    color: #333;
+nav a:hover {
+    background-color: #555;
+}
+
+/* Stiluri pentru secțiuni */
+section {
     margin-top: 20px;
 }
 
-p, ol, table {
-    margin-bottom: 20px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid #333;
-    padding: 8px;
-    text-align: left;
-}
-
-th {
-    background-color: #666;
+section h2 {
+    background-color: #333;
     color: white;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-/* Stiluri pentru iframe */
-iframe {
-    border: 1px solid #333;
+section p {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ddd;
     border-radius: 5px;
-    margin-bottom: 20px;
+}
+
+/* Stiluri pentru canvas */
+canvas {
+    border: 1px solid #333;
+    margin-top: 10px;
+}
+
+/* Stiluri pentru videouri */
+.videouri {
+    display: flex;
+    flex-direction: column; /* Aliniere verticală de sus în jos */
+    align-items: center; /* Aliniere elemente la centru pe axa orizontală */
+    margin-top: 20px; /* Adăugare spațiu între bara de navigație și prima video */
+}
+
+.video-item {
+    width: 80%; /* Lățimea video-urilor */
+    margin-bottom: 20px; /* Spațiu între videouri */
+}
+
+video {
+    width: 100%; /* Videourile ocupă întreaga lățime */
+    height: auto; /* Înălțimea se ajustează automat proporțional cu lățimea */
+    max-height: 200px; /* Înălțimea maximă a videourilor */
 }
 
 /* Adăugarea de elemente specifice CSS3 */
@@ -110,24 +124,38 @@ nav a:hover {
     background-color: #555;
 }
 
-/* Stiluri pentru galeria video */
-.videouri {
-    display: flex;
-    flex-direction: column; /* Aliniere verticală de sus în jos */
-    align-items: center; /* Aliniere elemente la centru pe axa orizontală */
-    margin-top: 20px; /* Adăugare spațiu între bara de navigație și prima video */
+
+/* Stiluri pentru secțiuni */
+section {
+    margin-top: 20px;
 }
 
-.video-item {
-    width: 80%; /* Lățimea video-urilor */
-    margin-bottom: 20px; /* Spațiu între videouri */
+section h2 {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-/* Stiluri pentru videouri */
-video {
-    width: 100%; /* Videourile ocupă întreaga lățime */
-    height: auto; /* Înălțimea se ajustează automat proporțional cu lățimea */
-    max-height: 200px; /* Înălțimea maximă a videourilor */
+section label, section input, section button {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
+/* Stiluri pentru tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
 
+th, td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #666;
+    color: white;
+}
