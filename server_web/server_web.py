@@ -4,6 +4,9 @@ import threading
 import gzip
 from io import BytesIO
 
+# Define the path to the 'continut' directory
+CONTENT_DIR = os.path.join(os.path.dirname(__file__), '..', 'continut')
+
 def get_content_type(file_path):
     """Return the content type based on the file extension."""
     if file_path.endswith('.html'):
@@ -11,13 +14,13 @@ def get_content_type(file_path):
     elif file_path.endswith('.css'):
         return 'text/css'
     elif file_path.endswith('.js'):
-        return 'application/js'
+        return 'application/javascript'
     elif file_path.endswith('.png'):
-        return 'text/png'
+        return 'image/png'
     elif file_path.endswith('.jpg') or file_path.endswith('.jpeg'):
-        return 'text/jpeg'
+        return 'image/jpeg'
     elif file_path.endswith('.gif'):
-        return 'text/gif'
+        return 'image/gif'
     elif file_path.endswith('.ico'):
         return 'image/x-icon'
     else:
@@ -26,7 +29,7 @@ def get_content_type(file_path):
 def compress_content(content):
     """Compress content using gzip."""
     buf = BytesIO()
-    with gzip.GzipFile(fileobj=buf, mode='w') as f:
+    with gzip.GzipFile(fileobj=buf, mode='wb') as f:
         f.write(content)
     return buf.getvalue()
 
@@ -34,46 +37,74 @@ def handle_request(client_socket, address):
     """Handle client request."""
     print(f"S-a conectat un client de la adresa: {address}")
 
-    # Citirea cererii HTTP
-    request_data = client_socket.recv(1024).decode('utf-8')
-    print(f"Cerere:\n{request_data}")
+    try:
+        # Citirea cererii HTTP
+        request_data = client_socket.recv(1024).decode('utf-8')
+        print(f"Cerere:\n{request_data}")
 
-    # Extrage path-ul resursei cerute
-    request_lines = request_data.split('\n')
-    first_line = request_lines[0]
-    url = first_line.split(' ')[1]
+        # Verifică dacă cererea HTTP este validă
+        request_lines = request_data.split('\n')
+        if len(request_lines) == 0 or len(request_lines[0].split(' ')) < 2:
+            raise ValueError("Invalid HTTP request")
 
-    # Construiește calea locală a resursei
-    file_path = 'continut' + url
-
-    # Verifică dacă fișierul există
-    if os.path.exists(file_path) and os.path.isfile(file_path):
-        with open(file_path, 'rb') as file:
-            file_content = file.read()
+        first_line = request_lines[0]
+        url = first_line.split(' ')[1]
         
-        # Comprimă conținutul
-        compressed_content = compress_content(file_content)
+        # Logging the requested URL
+        print(f"Requested URL: {url}")
+
+        # Construiește calea locală a resursei
+        file_path = os.path.join(CONTENT_DIR, url.lstrip('/'))
+        if url == '/':
+            file_path = os.path.join(CONTENT_DIR, 'index.html')  # Default to index.html if root is requested
         
-        # Construiește răspunsul HTTP
-        content_type = get_content_type(file_path)
-        response_header = f"HTTP/1.1 200 OK\nContent-Type: {content_type}\nContent-Length: {str(len(compressed_content))}\nContent-Encoding: gzip\n\n"
-        response_data = response_header.encode('utf-8') + compressed_content
+        # Logging the constructed file path
+        print(f"File path: {file_path}")
 
-    else:
-        response_data = "HTTP/1.1 404 Not Found\nContent-Type: text/html\n\n<h1>404 Not Found</h1>".encode('utf-8')
+        # Verifică dacă fișierul există
+        if os.path.exists(file_path) and os.path.isfile(file_path):
+            with open(file_path, 'rb') as file:
+                file_content = file.read()
+            
+            # Comprimă conținutul
+            compressed_content = compress_content(file_content)
+            
+            # Construiește răspunsul HTTP
+            content_type = get_content_type(file_path)
+            response_header = (f"HTTP/1.1 200 OK\r\n"
+                               f"Content-Type: {content_type}\r\n"
+                               f"Content-Length: {str(len(compressed_content))}\r\n"
+                               f"Content-Encoding: gzip\r\n\r\n")
+            response_data = response_header.encode('utf-8') + compressed_content
 
-    # Trimite răspunsul către client
-    client_socket.sendall(response_data)
+        else:
+            # Logging file not found
+            print(f"File not found: {file_path}")
+            response_data = "HTTP/1.1 404 Not Found\r\nContent-Type: text/html\r\n\r\n<h1>404 Not Found</h1>".encode('utf-8')
 
-    # Închide conexiunea
-    client_socket.close()
+        # Trimite răspunsul către client
+        client_socket.sendall(response_data)
+
+    except ValueError as e:
+        print(f"Error: {e}")
+        response_data = "HTTP/1.1 400 Bad Request\r\nContent-Type: text/html\r\n\r\n<h1>400 Bad Request</h1>".encode('utf-8')
+        client_socket.sendall(response_data)
+
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+        response_data = "HTTP/1.1 500 Internal Server Error\r\nContent-Type: text/html\r\n\r\n<h1>500 Internal Server Error</h1>".encode('utf-8')
+        client_socket.sendall(response_data)
+
+    finally:
+        # Închide conexiunea
+        client_socket.close()
 
 def main():
     """Main function to start the server."""
     serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    serversocket.bind(('', 5678))
+    serversocket.bind(('', 5679))  # Changed port to 5679
     serversocket.listen(5)
-    print("Serverul asculta cereri la adresa http://localhost:5678/")
+    print("Serverul asculta cereri la adresa http://localhost:5679/")
 
     client_threads = []
 
@@ -103,3 +134,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
